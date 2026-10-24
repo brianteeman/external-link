@@ -14,7 +14,7 @@
       }
     },
     {
-      "name": "plg_system_externallink",
+      "name": "plg_system_externallink.style",
       "type": "style",
       "uri": "plg_system_externallink/css/externallink.css"
     }
