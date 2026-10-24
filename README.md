@@ -24,6 +24,16 @@ Package the contents of `plugins/system/externallink` as a Joomla plugin install
 
 After installation, enable **System - External Link** in the Plugin Manager.
 
+## Excluding individual links
+
+To prevent a specific link from receiving the icon and screen-reader announcement, add the `no-external-link-icon` class to the link:
+
+```html
+<a href="/somewhere" target="_blank" class="no-external-link-icon">Open link</a>
+```
+
+The exclusion applies to links processed during the initial page scan and to links added dynamically later. Add the class before the plugin processes the link.
+
 ## Scope
 
 This plugin only targets links with `target="_blank"`. It does not detect external domains or add indicators for downloads, email addresses, telephone numbers, or other link types.
