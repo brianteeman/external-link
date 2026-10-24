@@ -98,9 +98,9 @@
 
         const parent = textNode.parentNode;
         const wordNode = document.createTextNode(word);
-        const afterNode = document.createTextNode(trailingWhitespace);
+        const trailingNode = trailingWhitespace ? document.createTextNode(trailingWhitespace) : null;
 
-        if (before) {
+        if (before || separator) {
             parent.insertBefore(document.createTextNode(before + separator), textNode);
         }
 
@@ -109,42 +109,48 @@
         wrapper.appendChild(icon);
         wrapper.appendChild(hiddenText);
 
-        if (trailingWhitespace) {
-            parent.insertBefore(afterNode, textNode.nextSibling);
+        if (trailingNode) {
+            parent.insertBefore(trailingNode, textNode.nextSibling);
         }
 
         parent.removeChild(textNode);
 
-        // Keep trailing whitespace and any existing hidden descendants in their original order.
-        // The wrapper is moved to the end only when all following nodes are whitespace or hidden.
-        let following = wrapper.nextSibling;
-        let canMoveToEnd = true;
+        // Existing hidden descendants at the end of the link must remain hidden and in order.
+        // Only move the wrapper to the link's end when doing so does not change inline nesting.
+        if (parent === link) {
+            let following = wrapper.nextSibling;
+            let canMoveToEnd = true;
 
-        while (following) {
-            const next = following.nextSibling;
+            while (following) {
+                const next = following.nextSibling;
 
-            if (following.nodeType === Node.TEXT_NODE && following.nodeValue.trim() === '') {
-                following = next;
-                continue;
+                if (following.nodeType === Node.TEXT_NODE && following.nodeValue.trim() === '') {
+                    following = next;
+                    continue;
+                }
+
+                if (following.nodeType === Node.COMMENT_NODE) {
+                    following = next;
+                    continue;
+                }
+
+                if (following.nodeType === Node.ELEMENT_NODE && following.matches('.sr-only, .visually-hidden')) {
+                    wrapper.appendChild(following);
+                    following = next;
+                    continue;
+                }
+
+                canMoveToEnd = false;
+                break;
             }
 
-            if (following.nodeType === Node.COMMENT_NODE) {
-                following = next;
-                continue;
+            if (canMoveToEnd) {
+                link.appendChild(wrapper);
+
+                if (trailingNode) {
+                    link.appendChild(trailingNode);
+                }
             }
-
-            if (following.nodeType === Node.ELEMENT_NODE && following.matches('.sr-only, .visually-hidden')) {
-                wrapper.appendChild(following);
-                following = next;
-                continue;
-            }
-
-            canMoveToEnd = false;
-            break;
-        }
-
-        if (canMoveToEnd && wrapper.parentNode === link && wrapper.nextSibling) {
-            link.appendChild(wrapper);
         }
 
         return true;
