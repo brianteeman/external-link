@@ -4,7 +4,7 @@
  * @package     Joomla.Plugin
  * @subpackage  System.externallink
  *
- * @copyright   (C) 2026 Brian Teeman
+ * @copyright   (C) 2026 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -21,6 +21,8 @@ use Joomla\Event\SubscriberInterface;
 
 /**
  * Adds an accessible external-window indicator to links opening a new tab or window.
+ *
+ * @since  __DEPLOY_VERSION__
  */
 final class Externallink extends CMSPlugin implements SubscriberInterface
 {

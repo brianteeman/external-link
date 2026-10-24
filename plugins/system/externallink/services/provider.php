@@ -4,7 +4,7 @@
  * @package     Joomla.Plugin
  * @subpackage  System.externallink
  *
- * @copyright   (C) 2026 Brian Teeman
+ * @copyright   (C) 2026 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -24,6 +24,8 @@ return new class () implements ServiceProviderInterface {
      * @param   Container  $container  The DI container.
      *
      * @return  void
+     *
+     * @since   __DEPLOY_VERSION__
      */
     public function register(Container $container): void
     {
