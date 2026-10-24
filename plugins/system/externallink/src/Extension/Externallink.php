@@ -61,13 +61,13 @@ final class Externallink extends CMSPlugin implements SubscriberInterface
         $webAssetManager
             ->registerAndUseScript(
                 'plg_system_externallink',
-                'plg_system_externallink/js/externallink.js',
+                'plg_system_externallink/externallink.js',
                 [],
                 ['defer' => true]
             )
             ->registerAndUseStyle(
                 'plg_system_externallink.style',
-                'plg_system_externallink/css/externallink.css'
+                'plg_system_externallink/externallink.css'
             );
     }
 }
