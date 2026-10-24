@@ -15,7 +15,6 @@
     <media destination="plg_system_externallink" folder="media">
         <folder>css</folder>
         <folder>js</folder>
-        <filename>joomla.asset.json</filename>
     </media>
     <languages folder="admin">
         <language tag="en-GB">language/en-GB/plg_system_externallink.ini</language>
