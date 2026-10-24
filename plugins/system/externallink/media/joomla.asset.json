@@ -8,7 +8,7 @@
     {
       "name": "plg_system_externallink",
       "type": "script",
-      "uri": "plg_system_externallink/externallink.js",
+      "uri": "plg_system_externallink/js/externallink.js",
       "attributes": {
         "defer": true
       }
@@ -16,7 +16,7 @@
     {
       "name": "plg_system_externallink",
       "type": "style",
-      "uri": "plg_system_externallink/externallink.css"
+      "uri": "plg_system_externallink/css/externallink.css"
     }
   ]
 }
