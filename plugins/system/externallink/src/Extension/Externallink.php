@@ -56,8 +56,18 @@ final class Externallink extends CMSPlugin implements SubscriberInterface
         $this->loadLanguage();
         Text::script('PLG_SYSTEM_EXTERNALLINK_NEW_WINDOW');
 
-        $document->getWebAssetManager()
-            ->useScript('plg_system_externallink')
-            ->useStyle('plg_system_externallink.style');
+        $webAssetManager = $document->getWebAssetManager();
+
+        $webAssetManager
+            ->registerAndUseScript(
+                'plg_system_externallink',
+                'plg_system_externallink/js/externallink.js',
+                [],
+                ['defer' => true]
+            )
+            ->registerAndUseStyle(
+                'plg_system_externallink.style',
+                'plg_system_externallink/css/externallink.css'
+            );
     }
 }
