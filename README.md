@@ -1,3 +1,13 @@
+# Proposal
+
+This plugin is a proof of concept for a possible inclusion in Joomla 6.3
+
+The current css only inclusing of an icon to indicate that a link is going to open in a new window is not screenreader friendly - with this pr we can remove that css and instead have the links rendered with an icon AND screen reader only text that indicates the link opens in a new window.
+
+The criteria for displaying the icon has not changed
+
+Inspiration for this plugin comes from https://github.com/itmaybejj/linkpurpose but it is considerably simplified in scope.
+
 # External Link
 
 A Joomla 6 system plugin that adds an accessible new-window indicator to links with `target="_blank"`.
