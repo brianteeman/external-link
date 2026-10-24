@@ -1,0 +1,22 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "plg_system_externallink",
+  "version": "1.0.0",
+  "description": "Accessible indicators for links opening in a new window",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "plg_system_externallink",
+      "type": "script",
+      "uri": "plg_system_externallink/js/externallink.js",
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "plg_system_externallink",
+      "type": "style",
+      "uri": "plg_system_externallink/css/externallink.css"
+    }
+  ]
+}
