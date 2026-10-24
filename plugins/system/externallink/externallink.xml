@@ -17,7 +17,7 @@
         <folder>js</folder>
         <filename>joomla.asset.json</filename>
     </media>
-    <languages>
+    <languages folder="admin">
         <language tag="en-GB">language/en-GB/plg_system_externallink.ini</language>
         <language tag="en-GB">language/en-GB/plg_system_externallink.sys.ini</language>
     </languages>
